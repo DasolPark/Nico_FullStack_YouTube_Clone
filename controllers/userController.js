@@ -1,4 +1,23 @@
-export const join = (req, res) => res.render("Join", { pageTitle: "Join" });
+import routes from "../routes";
+
+export const getJoin = (req, res) => {
+  res.render("Join", { pageTitle: "Join" });
+};
+
+export const postJoin = (req, res) => {
+  const {
+    body: { name, email, password, password2 }
+  } = req;
+  if (password !== password2) {
+    res.status(400);
+    res.render("Join", { pageTitle: "Join" });
+  } else {
+    // To Do: Resgister User
+    // To Do: Log user in
+    res.redirect(routes.home);
+  }
+};
+
 export const login = (req, res) => res.render("Login", { pageTitle: "Login" });
 export const logout = (req, res) =>
   res.render("Logout", { pageTitle: "Logout" });
