@@ -79,8 +79,11 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-#node_modules
+# Node_modules
 node_modules
 
-#package-lock.json for security
+# Package-lock.json for security
 package-lock.json
+
+# Uploads Files
+uploads
