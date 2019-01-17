@@ -26,7 +26,7 @@ export const search = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.render("Search", { pageTitle: "Search", searchingBy, videos });
+  res.render("Search", { pageTitle: "Search", searchingBy });
 };
 
 // Upload
