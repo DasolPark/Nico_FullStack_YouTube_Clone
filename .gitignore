@@ -87,3 +87,6 @@ package-lock.json
 
 # Uploads Files
 uploads
+
+# Static Files
+static
