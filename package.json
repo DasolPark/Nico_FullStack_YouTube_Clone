@@ -38,7 +38,8 @@
   "scripts": {
     "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss'",
     "dev:assets": "webpack -w --mode=development",
-    "build:assets": "webpack --mode=production"
+    "build:assets": "webpack --mode=production",
+    "tunnel": "lt --port 4000"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
