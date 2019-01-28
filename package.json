@@ -36,7 +36,7 @@
     "webpack-cli": "^3.2.1"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss'",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' ",
     "dev:assets": "webpack -w --mode=development",
     "build:assets": "webpack --mode=production",
     "tunnel": "lt --port 4000"
