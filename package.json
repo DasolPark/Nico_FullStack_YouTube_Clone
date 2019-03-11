@@ -5,6 +5,7 @@
   "author": "Dasol Park",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.2.5",
@@ -40,10 +41,15 @@
     "webpack-cli": "^3.2.1"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' ",
-    "dev:assets": "webpack -w --mode=development",
-    "build:assets": "webpack --mode=production",
-    "tunnel": "lt --port 4000"
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static' ",
+    "dev:assets": "cd src && webpack -w --mode=development",
+    "build:assets": "cd src && webpack --mode=production",
+    "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
+    "copyAll": "cp -R src/static build && cp -R src/views build",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
+    "prebuild": "rm -rf build",
+    "tunnel": "lt --port 4000",
+    "start": "node build/init.js"
   },
   "devDependencies": {
     "eslint": "^5.12.0",
