@@ -21,7 +21,9 @@ _dotenv.default.config();
 var PORT = process.env.PORT || 4000;
 
 var handleListening = function handleListening() {
-  return console.log("Listening on: http://localhost:".concat(PORT));
+  return (// console.log(`Listening on: http://localhost:${PORT}`);
+    console.log("Listening on: https://safe-cliffs-48550.herokuapp.com/")
+  );
 };
 
 _app.default.listen(PORT, handleListening);
