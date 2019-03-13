@@ -39,28 +39,37 @@ var _apiRouter = _interopRequireDefault(require("./routers/apiRouter"));
 
 require("./passport");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
 var app = (0, _express.default)();
 var CookieStore = (0, _connectMongo.default)(_expressSession.default);
 app.use((0, _helmet.default)());
 app.set("view engine", "pug");
 app.set("views", _path.default.join(__dirname, "views"));
-app.use("/static", _express.default.static(_path.default.join(__dirname, "static")));
+app.use(
+  "/static",
+  _express.default.static(_path.default.join(__dirname, "static"))
+);
 app.use((0, _cookieParser.default)());
 app.use(_bodyParser.default.json());
-app.use(_bodyParser.default.urlencoded({
-  extended: true
-}));
-app.use((0, _morgan.default)("dev"));
-app.use((0, _expressSession.default)({
-  secret: process.env.COOKIE_SECRET,
-  resave: true,
-  saveUninitialized: false,
-  store: new CookieStore({
-    mongooseConnection: _mongoose.default.connection
+app.use(
+  _bodyParser.default.urlencoded({
+    extended: true
   })
-}));
+);
+app.use((0, _morgan.default)("dev"));
+app.use(
+  (0, _expressSession.default)({
+    secret: process.env.COOKIE_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    store: new CookieStore({
+      mongooseConnection: _mongoose.default.connection
+    })
+  })
+);
 app.use(_passport.default.initialize());
 app.use(_passport.default.session());
 app.use(_middlewares.localsMiddlewares);

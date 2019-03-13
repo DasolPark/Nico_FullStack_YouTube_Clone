@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.onlyPrivate = exports.onlyPublic = exports.localsMiddlewares = exports.uploadAvatar = exports.uploadVideo = void 0;
+exports.onlyPrivate = exports.onlyPublic = exports.localsMiddleware = exports.uploadAvatar = exports.uploadVideo = void 0;
 
 var _multer = _interopRequireDefault(require("multer"));
 
@@ -39,14 +39,14 @@ exports.uploadVideo = uploadVideo;
 var uploadAvatar = multerAvatar.single("avatar");
 exports.uploadAvatar = uploadAvatar;
 
-var localsMiddlewares = function localsMiddlewares(req, res, next) {
+var localsMiddleware = function localsMiddleware(req, res, next) {
   res.locals.siteName = "WeTube";
   res.locals.routes = _routes.default;
   res.locals.loggedUser = req.user || null;
   next();
 };
 
-exports.localsMiddlewares = localsMiddlewares;
+exports.localsMiddleware = localsMiddleware;
 
 var onlyPublic = function onlyPublic(req, res, next) {
   if (req.user) {

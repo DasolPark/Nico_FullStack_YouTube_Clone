@@ -16,7 +16,7 @@ passport.use(
       clientID: process.env.GH_ID,
       clientSecret: process.env.GH_SECRET,
       callbackURL: process.env.PRODUCTION
-        ? `https://safe-cliffs-48550.herokuapp.com/${routes.githubCallback}`
+        ? `https://gentle-reaches-57055.herokuapp.com${routes.githubCallback}`
         : `http://localhost:4000${routes.githubCallback}`
     },
     githubLoginCallback
@@ -28,7 +28,7 @@ passport.use(
     {
       clientID: process.env.FB_ID,
       clientSecret: process.env.FB_SECRET,
-      callbackURL: `https://tame-frog-30.localtunnel.me${
+      callbackURL: `https://gentle-reaches-57055.herokuapp.com${
         routes.facebookCallback
       }`,
       profileFields: ["id", "displayName", "photos", "email"],
