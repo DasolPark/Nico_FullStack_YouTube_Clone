@@ -4,15 +4,12 @@ import Comment from "../models/Comment";
 
 // Home
 export const home = async (req, res) => {
-  console.log("Access home function");
   try {
     const videos = await Video.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle: "Home", videos });
-    console.log("Almost There in home page");
   } catch (error) {
-    console.log("Can't open home page");
     console.log(error);
-    res.render("Home", { pageTitle: "Home", videos: [] });
+    res.render("home", { pageTitle: "Home", videos: [] });
   }
 };
 
@@ -30,13 +27,13 @@ export const search = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.render("Search", { pageTitle: "Search", searchingBy, videos });
+  res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 
 // Upload
 
 export const getUpload = (req, res) =>
-  res.render("Upload", { pageTitle: "Upload" });
+  res.render("upload", { pageTitle: "Upload" });
 export const postUpload = async (req, res) => {
   const {
     body: { title, description },
@@ -63,7 +60,7 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
-    res.render("VideoDetail", { pageTitle: video.title, video });
+    res.render("videoDetail", { pageTitle: video.title, video });
   } catch (error) {
     res.redirect(routes.home);
   }
