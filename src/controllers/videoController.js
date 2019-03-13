@@ -4,10 +4,13 @@ import Comment from "../models/Comment";
 
 // Home
 export const home = async (req, res) => {
+  console.log("Access home function");
   try {
     const videos = await Video.find({}).sort({ _id: -1 });
-    res.render("Home", { pageTitle: "Home", videos });
+    res.render("home", { pageTitle: "Home", videos });
+    console.log("Almost There in home page");
   } catch (error) {
+    console.log("Can't open home page");
     console.log(error);
     res.render("Home", { pageTitle: "Home", videos: [] });
   }
