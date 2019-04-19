@@ -2,6 +2,8 @@ import passport from "passport";
 import routes from "../routes";
 import User from "../models/User";
 
+// Join
+
 export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 };
@@ -27,6 +29,8 @@ export const postJoin = async (req, res, next) => {
     }
   }
 };
+
+// Log In
 
 export const getLogin = (req, res) =>
   res.render("login", { pageTitle: "Log In" });
@@ -103,11 +107,15 @@ export const postFacebookLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
+// Log Out
+
 export const logout = (req, res) => {
   req.flash("info", "Logged out, see you later");
   req.logout();
   res.redirect(routes.home);
 };
+
+// Me & userDetail
 
 export const getMe = (req, res) => {
   res.render("userDetail", { pageTitle: "User Detail", user: req.user });
@@ -126,6 +134,8 @@ export const userDetail = async (req, res) => {
     res.redirect(routes.home);
   }
 };
+
+// Edit Profile
 
 export const getEditProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "Edit Profile" });
@@ -148,6 +158,8 @@ export const postEditProfile = async (req, res) => {
     res.redirect(routes.editProfile);
   }
 };
+
+// Change Password
 
 export const getChangePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "Change Password" });
