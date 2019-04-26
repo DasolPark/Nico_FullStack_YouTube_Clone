@@ -1,8 +1,8 @@
 # Wetube
 
-https://gentle-reaches-57055.herokuapp.com
-
 Cloning Youtube with Vanilla and NodeJS
+
+https://gentle-reaches-57055.herokuapp.com
 
 ## Pages:
 
@@ -16,4 +16,10 @@ Cloning Youtube with Vanilla and NodeJS
 - [x] Upload
 - [x] Video Detail
 - [x] Edit Video
-- [ ] Test
+
+## Addtional Functions:
+
+- [ ] Comment(add(o), edit()-Page & MongoDB, delete()-Page & MongoDB, name)
+- [ ] Withdraw(Page & MongoDB Atlas & AWS S3)
+- [ ] Delete Video (Page & MongoDB Atlas & AWS S3)
+- [ ] Modify video total time

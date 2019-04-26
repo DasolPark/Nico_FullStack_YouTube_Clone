@@ -30,7 +30,7 @@ export const postJoin = async (req, res, next) => {
   }
 };
 
-// Log In
+// Log In (General, github, facebook)
 
 export const getLogin = (req, res) =>
   res.render("login", { pageTitle: "Log In" });
