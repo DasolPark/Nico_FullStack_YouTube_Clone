@@ -1,8 +1,9 @@
 # Wetube
 
-Cloning Youtube with Vanilla and NodeJS
+- Cloning Youtube with Vanilla JavaScript and NodeJS
+- Vanilla JS, ES6, Sass, Webpack, pug, Node.js, MongoDB, AWS S3, Heroku
 
-https://gentle-reaches-57055.herokuapp.com
+- Site URL: https://gentle-reaches-57055.herokuapp.com
 
 ## Pages:
 
